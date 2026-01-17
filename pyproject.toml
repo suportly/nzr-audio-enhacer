@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "nzr-music-enhancer"
 version = "0.1.0"
 description = "AI-powered music quality enhancer for .wav files"
-readme = {text = "AI-powered music quality enhancer for .wav files", content-type = "text/plain"}
+readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.11"
 authors = [
