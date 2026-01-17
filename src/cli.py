@@ -39,9 +39,9 @@ EXIT_WRITE_FAILED = 5
 )
 @click.option(
     "-q", "--quality",
-    type=click.Choice(["auto", "light", "standard", "aggressive"]),
+    type=click.Choice(["auto", "minimal", "light", "standard", "aggressive"]),
     default="auto",
-    help="Processing intensity level.",
+    help="Processing intensity level. 'minimal' skips EQ/dynamics.",
 )
 @click.option(
     "--no-ai",
@@ -299,7 +299,9 @@ def _build_config(
     """Build enhancement config from CLI options."""
     quality_level = QualityLevel(quality)
 
-    if quality == "light":
+    if quality == "minimal":
+        config = EnhancementConfig.minimal()
+    elif quality == "light":
         config = EnhancementConfig.light()
     elif quality == "standard":
         config = EnhancementConfig.standard()
